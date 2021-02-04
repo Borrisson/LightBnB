@@ -88,7 +88,7 @@ const getAllProperties = function ({
   let alreadyQueried = false;
   const queryParams = [];
   let queryString =
-    'SELECT properties.*, AVG(rating) AS "average_rating" FROM properties JOIN property_reviews ON properties.id=property_id ';
+    'SELECT properties.*, AVG(rating) AS "average_rating" FROM properties LEFT JOIN property_reviews ON properties.id=property_id ';
 
   if (city || owner_id || minimum_price_per_night || maximum_price_per_night) {
     queryString += 'WHERE ';
