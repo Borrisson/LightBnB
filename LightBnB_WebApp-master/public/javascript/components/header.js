@@ -51,6 +51,7 @@ $(() => {
       .then(function(json) {
         propertyListings.addProperties(json.reservations, true);
         views_manager.show('listings');
+        removeReservationBtn(this);
       })
       .catch(error => console.error(error));
   });

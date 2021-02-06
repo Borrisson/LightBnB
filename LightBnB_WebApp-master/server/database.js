@@ -178,3 +178,15 @@ const addProperty = function (property) {
     .catch(() => null);
 };
 exports.addProperty = addProperty;
+
+/**
+ * Add a reservation to the database
+ * @param {{}} property An object containing start_date and end_date.
+ * @return {Promise<{}>} A promise to the property.
+ */
+
+ const addReservation = function(dates) {
+   console.log(dates);
+ }
+
+ exports.addReservation = addReservation;

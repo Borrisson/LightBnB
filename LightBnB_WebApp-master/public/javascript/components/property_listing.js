@@ -3,7 +3,7 @@ $(() => {
 
   function createListing(property, isReservation) {
     return `
-    <article class="property-listing">
+    <article id="${property.id}" class="property-listing">
         <section class="property-listing__preview-image">
           <img src="${property.thumbnail_photo_url}" alt="house">
         </section>
@@ -35,8 +35,12 @@ $(() => {
   $('body').on('click', '.reservation-button', function () {
     views_manager.show('reservation');
     $('article').first().remove();
-    $(this).closest('article').clone().appendTo('.property-listings');
-    $('button').remove();
+    $(this)
+    .closest('article')
+    .clone()
+    .appendTo('.property-listings');
+    $(`<input type="hidden" value="${$(this).closest('article').attr('id')}" name="property-id">`).appendTo('form');
+    removeReservationBtn();
     return false;
   });
 });

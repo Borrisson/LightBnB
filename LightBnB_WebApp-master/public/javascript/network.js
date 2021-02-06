@@ -1,5 +1,4 @@
 function getMyDetails() {
-  console.log("getMyDetails");
   return $.ajax({
     url: "/users/me",
   });
@@ -45,10 +44,18 @@ function getAllReservations() {
   });
 }
 
-const submitProperty = function(data) {
+const submitProperty = function (data) {
   return $.ajax({
     method: "POST",
     url: "/api/properties",
     data,
+  });
+}
+
+const makeReservation = function (data) {
+  return $.ajax({
+    method: "POST",
+    url:"/api/reservations",
+    data
   });
 }
